@@ -1,0 +1,822 @@
+{
+	"info": {
+		"_postman_id": "292c2fee-55cc-4830-806a-b08eff89997a",
+		"name": "zagAssignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11170605"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"SampleBusinessOwner1\",\n    \"email\":\"sampleBusinessOwner1@gmail.com\",\n    \"password\":\"testPassword\",\n    \"role\":\"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Listing",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjAxOGI3OWVjZTMzNDFlYzJiYTA5MSIsImlhdCI6MTcxMDI1OTM0MH0.9U2LVP-94YXGs5iC1LbXyVJhu-fuz6I2j2GDoz9WoGU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"listingName\": \"Food Plaza\",\n    \"businessPhone\":\"1234567891\",\n    \"city\":\"Delhi\",\n    \"address\":\"New Delhi, Delhi\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/listing/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"listing",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Listing",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"listingName\": \"Food Cornor\",\n    \"businessPhone\":\"1234564891\",\n    \"city\":\"Mumbai\",\n    \"address\":\"Mumbai\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/listing/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"listing",
+								""
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": {\n            \"listingName\": \"Food Court\",\n            \"businessPhone\": \"1234567891\",\n            \"city\": \"Delhi\",\n            \"address\": \"New Delhi, Delhi\",\n            \"images\": [],\n            \"createdAt\": \"2024-03-12T13:01:35.374Z\",\n            \"updatedAt\": \"2024-03-12T13:01:35.374Z\",\n            \"_id\": \"65f05236df20006af1ca9813\",\n            \"__v\": 0\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Listings",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjAxODRjOWVjZTMzNDFlYzJiYTA4ZCIsImlhdCI6MTcxMDI1MjcyNH0.ZcQHO496ZkTuQ1UDzsJbdn2YDM48jIQRN7C80Lj4H1U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/listing/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"listing",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Listings",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/listing/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"listing",
+								""
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "\"status\": \"success\",\n    \"results\": 2,\n    \"data\": {\n        \"data\": [\n            {\n                \"_id\": \"65f052cedf20006af1ca9815\",\n                \"listingName\": \"Food Cornor\",\n                \"businessPhone\": \"1234564891\",\n                \"city\": \"Mumbai\",\n                \"address\": \"Mumbai\",\n                \"images\": [],\n                \"createdAt\": \"2024-03-12T13:01:35.374Z\",\n                \"updatedAt\": \"2024-03-12T13:01:35.374Z\",\n                \"__v\": 0,\n                \"ratingsAverage\": 3\n            },\n            {\n                \"ratingsAverage\": 4.5,\n                \"_id\": \"65f0819ece98e2e7009592f8\",\n                \"listingName\": \"Food Plaza\",\n                \"businessPhone\": \"1234567891\",\n                \"city\": \"Delhi\",\n                \"address\": \"New Delhi, Delhi\",\n                \"images\": [],\n                \"createdAt\": \"2024-03-12T16:19:40.090Z\",\n                \"updatedAt\": \"2024-03-12T16:19:40.090Z\",\n                \"__v\": 0\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Listing By Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjAxODRjOWVjZTMzNDFlYzJiYTA4ZCIsImlhdCI6MTcxMDI1MjcyNH0.ZcQHO496ZkTuQ1UDzsJbdn2YDM48jIQRN7C80Lj4H1U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/listing/:listingId",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"listing",
+						":listingId"
+					],
+					"variable": [
+						{
+							"key": "listingId",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Listing By Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/listing/65f052cedf20006af1ca9815",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"listing",
+								"65f052cedf20006af1ca9815"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": {\n            \"_id\": \"65f052cedf20006af1ca9815\",\n            \"listingName\": \"Food Cornor\",\n            \"businessPhone\": \"1234564891\",\n            \"city\": \"Mumbai\",\n            \"address\": \"Mumbai\",\n            \"images\": [],\n            \"createdAt\": \"2024-03-12T13:01:35.374Z\",\n            \"updatedAt\": \"2024-03-12T13:01:35.374Z\",\n            \"__v\": 0,\n            \"ratingsAverage\": 3\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Listing",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjAxODRjOWVjZTMzNDFlYzJiYTA4ZCIsImlhdCI6MTcxMDI1MjcyNH0.ZcQHO496ZkTuQ1UDzsJbdn2YDM48jIQRN7C80Lj4H1U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n    \"businessPhone\": \"1234567836\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/listing/:listingId",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"listing",
+						":listingId"
+					],
+					"variable": [
+						{
+							"key": "listingId",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Listing",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n    \"businessPhone\": \"123467836\"\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/listing/65f05236df20006af1ca9813",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"listing",
+								"65f05236df20006af1ca9813"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": {\n            \"ratingsAverage\": 4.5,\n            \"_id\": \"65f0819ece98e2e7009592f8\",\n            \"listingName\": \"Food Plaza\",\n            \"businessPhone\": \"123467836\",\n            \"city\": \"Delhi\",\n            \"address\": \"New Delhi, Delhi\",\n            \"images\": [],\n            \"createdAt\": \"2024-03-12T16:19:40.090Z\",\n            \"updatedAt\": \"2024-03-12T16:19:40.090Z\",\n            \"__v\": 0\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Listing",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjAxODRjOWVjZTMzNDFlYzJiYTA4ZCIsImlhdCI6MTcxMDI1MjcyNH0.ZcQHO496ZkTuQ1UDzsJbdn2YDM48jIQRN7C80Lj4H1U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/listing/:listingId",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"listing",
+						":listingId"
+					],
+					"variable": [
+						{
+							"key": "listingId",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Listing",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/listing/65f054ee834120064ba4318e",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"listing",
+								"65f054ee834120064ba4318e"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"jwt\", pm.response.json().token);",
+							"pm.collectionVariables.get(\"jwt\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"SampleBusinessOwner1@gmail.com\",\n    \"password\":\"testPassword\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"SampleBusinessOwner1@gmail.com\",\n    \"password\":\"testPassword\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjAxOGI3OWVjZTMzNDFlYzJiYTA5MSIsImlhdCI6MTcxMDMxMjM3Nn0.MsA4yOoWpbnnCn0jU97c3YvORFJaf65nDARRY6wUPKM\",\n    \"data\": {\n        \"user\": {\n            \"_id\": \"65f018b79ece3341ec2ba091\",\n            \"name\": \"SampleBusinessOwner1\",\n            \"email\": \"samplebusinessowner1@gmail.com\",\n            \"role\": \"business_owner\",\n            \"password\": \"$2a$12$tIROIbTUU4kEZPzPL.02w.jH6SoU7sUGJurnXY85GpMt8uJ9BYV5C\",\n            \"createdAt\": \"2024-03-12T08:52:29.172Z\",\n            \"updatedAt\": \"2024-03-12T08:52:29.172Z\",\n            \"__v\": 0\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Review",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjAxODRjOWVjZTMzNDFlYzJiYTA4ZCIsImlhdCI6MTcxMDI1MjcyNH0.ZcQHO496ZkTuQ1UDzsJbdn2YDM48jIQRN7C80Lj4H1U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\":\"Average\",\n    \"rating\":3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/reviews/:listingId",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"reviews",
+						":listingId"
+					],
+					"variable": [
+						{
+							"key": "listingId",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Review",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\":\"Loved It\",\n    \"rating\":4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/reviews/65f0819ece98e2e7009592f8",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"reviews",
+								"65f0819ece98e2e7009592f8"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": {\n            \"description\": \"Loved It\",\n            \"rating\": 4,\n            \"user\": \"65f0184c9ece3341ec2ba08d\",\n            \"listing\": \"65f0819ece98e2e7009592f8\",\n            \"createdAt\": \"2024-03-13T06:44:14.391Z\",\n            \"updatedAt\": \"2024-03-13T06:44:14.391Z\",\n            \"_id\": \"65f14d7d928f15322fce28ed\",\n            \"__v\": 0,\n            \"id\": \"65f14d7d928f15322fce28ed\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Reviews",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjAxODRjOWVjZTMzNDFlYzJiYTA4ZCIsImlhdCI6MTcxMDI1MjcyNH0.ZcQHO496ZkTuQ1UDzsJbdn2YDM48jIQRN7C80Lj4H1U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/reviews",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"reviews"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Reviews",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/reviews",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"reviews"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"results\": 4,\n    \"data\": {\n        \"data\": [\n            {\n                \"_id\": \"65f07685c579b2f0ea533a0a\",\n                \"description\": \"Really Awesome\",\n                \"user\": {\n                    \"_id\": \"65f0184c9ece3341ec2ba08d\",\n                    \"name\": \"SampleUser1\"\n                },\n                \"listing\": {\n                    \"_id\": \"65f052cedf20006af1ca9815\",\n                    \"listingName\": \"Food Cornor\",\n                    \"address\": \"Mumbai\"\n                },\n                \"createdAt\": \"2024-03-12T15:36:34.454Z\",\n                \"updatedAt\": \"2024-03-12T15:36:34.454Z\",\n                \"__v\": 0,\n                \"response\": \"Thanks !!! Please visit again\",\n                \"rating\": 3,\n                \"id\": \"65f07685c579b2f0ea533a0a\"\n            },\n            {\n                \"_id\": \"65f080a3ce98e2e7009592ed\",\n                \"description\": \"Good Food\",\n                \"user\": {\n                    \"_id\": \"65f0184c9ece3341ec2ba08d\",\n                    \"name\": \"SampleUser1\"\n                },\n                \"listing\": {\n                    \"_id\": \"65f052cedf20006af1ca9815\",\n                    \"listingName\": \"Food Cornor\",\n                    \"address\": \"Mumbai\"\n                },\n                \"createdAt\": \"2024-03-12T16:19:40.093Z\",\n                \"updatedAt\": \"2024-03-12T16:19:40.093Z\",\n                \"__v\": 0,\n                \"rating\": 3,\n                \"id\": \"65f080a3ce98e2e7009592ed\"\n            },\n            {\n                \"_id\": \"65f141d84abea93c00062fcf\",\n                \"description\": \"Average\",\n                \"rating\": 3,\n                \"user\": {\n                    \"_id\": \"65f0184c9ece3341ec2ba08d\",\n                    \"name\": \"SampleUser1\"\n                },\n                \"listing\": {\n                    \"_id\": \"65f052cedf20006af1ca9815\",\n                    \"listingName\": \"Food Cornor\",\n                    \"address\": \"Mumbai\"\n                },\n                \"createdAt\": \"2024-03-13T06:03:57.397Z\",\n                \"updatedAt\": \"2024-03-13T06:03:57.397Z\",\n                \"__v\": 0,\n                \"id\": \"65f141d84abea93c00062fcf\"\n            },\n            {\n                \"_id\": \"65f14d7d928f15322fce28ed\",\n                \"description\": \"Loved It\",\n                \"rating\": 4,\n                \"user\": {\n                    \"_id\": \"65f0184c9ece3341ec2ba08d\",\n                    \"name\": \"SampleUser1\"\n                },\n                \"listing\": {\n                    \"_id\": \"65f0819ece98e2e7009592f8\",\n                    \"listingName\": \"Food Plaza\",\n                    \"address\": \"New Delhi, Delhi\"\n                },\n                \"createdAt\": \"2024-03-13T06:44:14.391Z\",\n                \"updatedAt\": \"2024-03-13T06:44:14.391Z\",\n                \"__v\": 0,\n                \"id\": \"65f14d7d928f15322fce28ed\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Review by Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjAxODRjOWVjZTMzNDFlYzJiYTA4ZCIsImlhdCI6MTcxMDI1MjcyNH0.ZcQHO496ZkTuQ1UDzsJbdn2YDM48jIQRN7C80Lj4H1U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/reviews/65f07685c579b2f0ea533a0a",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"reviews",
+						"65f07685c579b2f0ea533a0a"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Review by Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/reviews/65f0819ece98e2e7009592f8",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"reviews",
+								"65f0819ece98e2e7009592f8"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"_id\": \"65f14d7d928f15322fce28ed\",\n        \"description\": \"Loved It\",\n        \"rating\": 4,\n        \"user\": {\n            \"_id\": \"65f0184c9ece3341ec2ba08d\",\n            \"name\": \"SampleUser1\"\n        },\n        \"listing\": {\n            \"_id\": \"65f0819ece98e2e7009592f8\",\n            \"listingName\": \"Food Plaza\",\n            \"address\": \"New Delhi, Delhi\"\n        },\n        \"createdAt\": \"2024-03-13T06:44:14.391Z\",\n        \"updatedAt\": \"2024-03-13T06:44:14.391Z\",\n        \"__v\": 0,\n        \"id\": \"65f14d7d928f15322fce28ed\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Review ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjAxODRjOWVjZTMzNDFlYzJiYTA4ZCIsImlhdCI6MTcxMDI1MjcyNH0.ZcQHO496ZkTuQ1UDzsJbdn2YDM48jIQRN7C80Lj4H1U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\":\"Really Awesome Loved it\",\n    \"rating\":4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/reviews/:reviewId",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"reviews",
+						":reviewId"
+					],
+					"variable": [
+						{
+							"key": "reviewId",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Review",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\":\"Really Awesome Loved it\",\n    \"rating\":4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/reviews/65f07685c579b2f0ea533a0a",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"reviews",
+								"65f07685c579b2f0ea533a0a"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": {\n            \"_id\": \"65f07685c579b2f0ea533a0a\",\n            \"description\": \"Really Awesome Loved It\",\n            \"user\": {\n                \"_id\": \"65f0184c9ece3341ec2ba08d\",\n                \"name\": \"SampleUser1\"\n            },\n            \"listing\": {\n                \"_id\": \"65f052cedf20006af1ca9815\",\n                \"listingName\": \"Food Cornor\",\n                \"address\": \"Mumbai\"\n            },\n            \"createdAt\": \"2024-03-12T15:36:34.454Z\",\n            \"updatedAt\": \"2024-03-12T15:36:34.454Z\",\n            \"__v\": 0,\n            \"response\": \"Thanks !!! Please visit again\",\n            \"rating\": 4,\n            \"id\": \"65f07685c579b2f0ea533a0a\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Review",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjAxODRjOWVjZTMzNDFlYzJiYTA4ZCIsImlhdCI6MTcxMDI1MjcyNH0.ZcQHO496ZkTuQ1UDzsJbdn2YDM48jIQRN7C80Lj4H1U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/reviews/65f07a2a4a5470f35eb2e83e",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"reviews",
+						"65f07a2a4a5470f35eb2e83e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Review For Business Owners",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjAxOGI3OWVjZTMzNDFlYzJiYTA5MSIsImlhdCI6MTcxMDI1OTM0MH0.9U2LVP-94YXGs5iC1LbXyVJhu-fuz6I2j2GDoz9WoGU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"response\":\"Thanks !!! Please visit again\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/reviews/65f07685c579b2f0ea533a0a",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"reviews",
+						"65f07685c579b2f0ea533a0a"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
