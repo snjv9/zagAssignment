@@ -1,7 +1,7 @@
 DOCUMENTATION
 
 1. Navigate to project root folder and run npm install
-2. Create a file config.env in root directory and specify all the envirornment variables as listed in .env file.
+2. Create a file config.env in root directory and specify all the envirornment variables as listed in .env file.(If unable to connect to database, Please revert back and I can provide my database credentials)
 3. Run Command: npm run dev
 4. Import the postman collection from postman collection folder
 5. Postman Collection have examples for each route
